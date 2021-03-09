@@ -317,7 +317,7 @@ export class Slider extends PureComponent<SliderProps, SliderState> {
         const {containerSize, thumbSize, values} = this.state;
         const {maximumValue, minimumValue, step} = this.props;
         const length = containerSize.width - thumbSize.width;
-        const thumbLeft = this._previousLeft + gestureState.dx;
+        const thumbLeft = this.props.lang=='ar'?this._previousLeft + gestureState.dx:this._previousLeft - gestureState.dx;
 
         const nonRtlRatio = thumbLeft / length;
         const ratio = I18nManager.isRTL ? 1 - nonRtlRatio : nonRtlRatio;
